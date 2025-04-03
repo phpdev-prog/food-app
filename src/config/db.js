@@ -1,9 +1,10 @@
+require('dotenv').config()
 const mongoose = require("mongoose")
 
-const mongoDbUrl = "mongodb+srv://manindersolitaire:mani123@cluster0.kkpgvue.mongodb.net/"
+
 
 async function connectDB() {
-    const conn =  mongoose.connect(mongoDbUrl)
+    const conn =  mongoose.connect(process.env.MONGO_URI)
     if(conn){
         console.log(`MongoDB Connected on ${mongoose.connection.host}`)
     }
